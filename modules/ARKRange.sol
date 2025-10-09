@@ -28,63 +28,81 @@ contract ARKRange {
 
     /// @notice Get the full Range data in a struct.
     function range() external view returns (Range memory) {
+        uint256 timeShift = block.timestamp % 1000;
+
         return
             Range({
                 low: Side({
-                    active: true,
-                    lastActive: uint48(block.timestamp),
-                    capacity: 1000e18,
-                    threshold: 500e18,
+                    active: (timeShift % 2 == 0),
+                    lastActive: uint48(block.timestamp - (timeShift % 60)),
+                    capacity: baseCapacityLow + (timeShift * 1e16),
+                    threshold: (baseCapacityLow / 2) + (timeShift * 1e14),
                     market: 1,
-                    cushion: Line({price: 9e18, spread: 100}),
-                    wall: Line({price: 8e18, spread: 200})
+                    cushion: Line({
+                        price: basePrice - volatility * 2,
+                        spread: baseSpreadCushion
+                    }),
+                    wall: Line({
+                        price: basePrice - volatility * 4,
+                        spread: baseSpreadWall
+                    })
                 }),
                 high: Side({
-                    active: true,
-                    lastActive: uint48(block.timestamp),
-                    capacity: 2000e18,
-                    threshold: 1000e18,
+                    active: (timeShift % 3 != 0),
+                    lastActive: uint48(block.timestamp - (timeShift % 45)),
+                    capacity: baseCapacityHigh - (timeShift * 1e16),
+                    threshold: (baseCapacityHigh / 2) - (timeShift * 1e14),
                     market: 2,
-                    cushion: Line({price: 11e18, spread: 100}),
-                    wall: Line({price: 12e18, spread: 200})
+                    cushion: Line({
+                        price: basePrice + volatility * 2,
+                        spread: baseSpreadCushion
+                    }),
+                    wall: Line({
+                        price: basePrice + volatility * 4,
+                        spread: baseSpreadWall
+                    })
                 })
             });
     }
 
     /// @notice Get the capacity for a side of the range.
     function capacity(bool high_) external view returns (uint256) {
+        uint256 timeShift = block.timestamp % 500;
         if (high_) {
-            return 2000e18; // 2000
+            return baseCapacityHigh - (timeShift * 1e16);
         }
-        return 1000e18;
+        return baseCapacityLow + (timeShift * 1e16);
     }
 
     /// @notice Get the status of a side of the range (whether it is active or not).
-    function active(bool) external view returns (bool) {
-        return true;
+    function active(bool high_) external view returns (bool) {
+        uint256 timeShift = block.timestamp % 10;
+        return high_ ? (timeShift % 3 != 0) : (timeShift % 2 == 0);
     }
 
     /// @notice Get the price for the wall or cushion for a side of the range.
     function price(bool high_, bool wall_) external view returns (uint256) {
+        uint256 fluctuation = (block.timestamp % 100) * 1e14;
         if (high_) {
             if (wall_) {
-                return 12e18;
+                return basePrice + volatility * 4 + fluctuation;
             }
-            return 11e18;
+            return basePrice + volatility * 2 + fluctuation / 2;
         } else {
             if (wall_) {
-                return 8e18;
+                return basePrice - volatility * 4 - fluctuation;
             }
-            return 9e18;
+            return basePrice - volatility * 2 - fluctuation / 2;
         }
     }
 
     /// @notice Get the spread for the wall or cushion band.
-    function spread(bool high_, bool wall_) external view returns (uint256) {
+    function spread(bool, bool wall_) external view returns (uint256) {
+        uint256 timeShift = block.timestamp % 20;
         if (wall_) {
-            return 200;
+            return baseSpreadWall + (timeShift % 5);
         }
-        return 100;
+        return baseSpreadCushion + (timeShift % 3);
     }
 
     /// @notice Get the market ID for a side of the range.
@@ -96,8 +114,9 @@ contract ARKRange {
     }
 
     /// @notice Get the timestamp when the range was last active.
-    function lastActive(bool) external view returns (uint256) {
-        return block.timestamp;
+    function lastActive(bool high_) external view returns (uint256) {
+        uint256 offset = high_ ? 45 : 60;
+        return block.timestamp - (block.timestamp % offset);
     }
 
     // --- Functions with access control ---
