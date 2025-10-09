@@ -43,21 +43,35 @@ contract ARKPrice {
 
     ///  getCurrentPrice.
     function getCurrentPrice() public view returns (uint256) {
-        return 10e18;
+        if (!initialized || priceHistory.length == 0) revert Price_NotInitialized();
+        return priceHistory[priceHistory.length - 1];
     }
 
     ///  getLastPrice.
     function getLastPrice() external view returns (uint256) {
-        return 9e18;
+        if (!initialized || priceHistory.length < 2) revert Price_NotInitialized();
+        return priceHistory[priceHistory.length - 2];
     }
 
     ///  getMovingAverage.
     function getMovingAverage() public view returns (uint256) {
-        return 9.5e18;
+        if (!initialized || priceHistory.length == 0) revert Price_NotInitialized();
+
+        uint256 count = priceHistory.length < movingAverageDuration
+            ? priceHistory.length
+            : movingAverageDuration;
+
+        uint256 sum;
+        for (uint256 i = priceHistory.length - count; i < priceHistory.length; i++) {
+            sum += priceHistory[i];
+        }
+        return sum / count;
     }
 
     ///  getTargetPrice.
     function getTargetPrice() external view returns (uint256) {
-        return 9.5e18; // set as 9.5, same sa MA
+        uint256 ma = getMovingAverage();
+        uint256 buffer = (ma * 1) / 100;
+        return ma + buffer;
     }
 } 
