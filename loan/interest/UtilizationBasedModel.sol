@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface IUtilizationBasedModel {
-    // 基於利用率的彈性利率模型
     function calculateBorrowRate(uint256 _utilization) external view returns (uint256);
     function calculateSupplyRate(uint256 _utilization) external view returns (uint256);
     function setKink(uint256 _kink) external;
