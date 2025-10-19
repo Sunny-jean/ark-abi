@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface IParameterGovernance {
-    // 參數治理
     function proposeParameterChange(string calldata _parameterName, bytes calldata _newValue) external returns (uint256);
     function approveParameterChange(uint256 _proposalId) external;
     function executeParameterChange(uint256 _proposalId) external;
