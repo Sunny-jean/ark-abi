@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface INFTAuctionManager {
-    // 拍賣處理
     function createAuction(uint256 _tokenId, uint256 _startingBid, uint256 _endTime) external;
     function placeBid(uint256 _auctionId) external payable;
     function endAuction(uint256 _auctionId) external;
