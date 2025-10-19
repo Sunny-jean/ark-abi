@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface ILiquidationManager {
-    // 清算主控合約
     function liquidatePosition(address _user, address _collateralAsset, uint256 _debtAssetAmount) external;
     function getLiquidatablePositions() external view returns (address[] memory);
     function setLiquidationThreshold(uint256 _threshold) external;
