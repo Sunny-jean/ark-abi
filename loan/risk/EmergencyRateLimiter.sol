@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface IEmergencyRateLimiter {
-    // 利率上限與資金鎖定應對
     function activateEmergencyMode() external;
     function deactivateEmergencyMode() external;
     function isEmergencyModeActive() external view returns (bool);
