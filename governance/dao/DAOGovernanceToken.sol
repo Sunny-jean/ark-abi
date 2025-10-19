@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface IDAOGovernanceToken {
-    // DAO 治理代幣
     function mint(address _to, uint256 _amount) external;
     function burn(uint256 _amount) external;
     function balanceOf(address _account) external view returns (uint256);
