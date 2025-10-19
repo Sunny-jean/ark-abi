@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface IGovernanceNFT {
-    // 治理主體 NFT
     function mint(address _to, uint256 _tokenId) external;
     function burn(uint256 _tokenId) external;
     function transfer(address _from, address _to, uint256 _tokenId) external;
