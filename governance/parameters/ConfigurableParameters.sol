@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface IConfigurableParameters {
-    // 可配置參數
     function getParameter(string calldata _parameterName) external view returns (bytes memory);
     function setParameter(string calldata _parameterName, bytes calldata _value) external;
 
