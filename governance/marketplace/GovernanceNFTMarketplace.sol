@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface IGovernanceNFTMarketplace {
-    // 去中心治理 NFT 市場
     function listItem(uint256 _tokenId, uint256 _price) external;
     function buyItem(uint256 _tokenId) external payable;
     function cancelListing(uint256 _tokenId) external;
