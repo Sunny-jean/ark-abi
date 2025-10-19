@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface INFTAccessControl {
-    // 訪問控制邏輯
     function hasAccess(address _user, uint256 _permissionId) external view returns (bool);
     function grantAccess(address _user, uint256 _permissionId) external;
     function revokeAccess(address _user, uint256 _permissionId) external;
