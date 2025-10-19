@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface ICollateralFactorManager {
-    // 抵押率與清算門檻配置
     function setCollateralFactor(address _asset, uint256 _factor) external;
     function getCollateralFactor(address _asset) external view returns (uint256);
     function setLiquidationThreshold(address _asset, uint256 _threshold) external;
