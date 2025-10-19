@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface IBudgetApprovalSystem {
-    // 預算審批系統
     function submitBudgetProposal(uint256 _amount, string calldata _description) external returns (uint256);
     function approveBudget(uint256 _proposalId) external;
     function getBudgetStatus(uint256 _proposalId) external view returns (bool approved, uint256 amount, string memory description);
