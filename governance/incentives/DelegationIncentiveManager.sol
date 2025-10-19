@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface IDelegationIncentiveManager {
-    // 委託激勵管理
     function provideDelegationIncentives(address _delegator, address _delegatee, uint256 _amount) external;
     function setDelegationIncentiveRate(uint256 _rate) external;
     function getDelegationIncentiveRate() external view returns (uint256);
