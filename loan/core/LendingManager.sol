@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface ILendingManager {
-    // 借貸主控邏輯
     function borrow(address _asset, uint256 _amount) external;
     function repay(address _asset, uint256 _amount) external;
     function depositCollateral(address _collateralAsset, uint256 _amount) external;
