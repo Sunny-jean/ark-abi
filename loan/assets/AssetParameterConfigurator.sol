@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface IAssetParameterConfigurator {
-    // 單資產參數設定
     function setBorrowCap(address _asset, uint256 _cap) external;
     function getBorrowCap(address _asset) external view returns (uint256);
     function setSupplyCap(address _asset, uint256 _cap) external;
