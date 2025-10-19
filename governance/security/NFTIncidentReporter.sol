@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface INFTIncidentReporter {
-    // 異常上報模組
     function reportIncident(uint256 _tokenId, string calldata _description) external;
     function getIncidentDetails(uint256 _incidentId) external view returns (uint256 tokenId, string memory description, uint256 timestamp);
 
