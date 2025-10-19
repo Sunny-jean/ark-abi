@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface ILendingRouter {
-    // 借款/還款/提款/補倉調用路由
     function routeBorrow(address _asset, uint256 _amount) external;
     function routeRepay(address _asset, uint256 _amount) external;
     function routeWithdraw(address _asset, uint256 _amount) external;
