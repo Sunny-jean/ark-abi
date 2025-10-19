@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface IEmergencyUpgradeHandler {
-    // 緊急升級處理
     function triggerEmergencyUpgrade(address _newImplementation) external;
     function setEmergencyAdmin(address _admin) external;
     function getEmergencyAdmin() external view returns (address);
