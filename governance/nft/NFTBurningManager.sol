@@ -4,7 +4,6 @@ pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 interface INFTBurningManager {
-    // 銷毀管理
     function burnNFT(uint256 _tokenId) external;
     function setBurningEnabled(bool _enabled) external;
     function isBurningEnabled() external view returns (bool);
