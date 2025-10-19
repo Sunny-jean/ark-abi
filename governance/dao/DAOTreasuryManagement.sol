@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface IDAOTreasuryManagement {
-    // DAO 資金管理
     function depositToDAO(address _token, uint256 _amount) external;
     function withdrawFromDAO(address _token, uint256 _amount) external;
     function getDAOBalance(address _token) external view returns (uint256);
