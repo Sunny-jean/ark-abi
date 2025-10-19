@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface IDAOProposalHook {
-    // 接入 DAO 提案變更參數
     function proposeParameterChange(uint256 _paramId, uint256 _newValue) external;
     function executeParameterChange(uint256 _paramId) external;
     function getProposedParameter(uint256 _paramId) external view returns (uint256);
