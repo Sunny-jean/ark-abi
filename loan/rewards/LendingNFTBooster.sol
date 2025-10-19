@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface ILendingNFTBooster {
-    // NFT 提升借貸額度
     function getBoostedBorrowLimit(address _user, uint256 _originalLimit) external view returns (uint256);
     function registerNFT(address _nftContract, uint256 _tokenId, uint256 _boostFactor) external;
     function unregisterNFT(address _nftContract, uint256 _tokenId) external;
