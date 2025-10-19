@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface INFTAuthorizationRegistry {
-    // 授權登記簿
     function authorize(address _operator, uint256 _tokenId) external;
     function revokeAuthorization(address _operator, uint256 _tokenId) external;
     function isAuthorized(address _operator, uint256 _tokenId) external view returns (bool);
