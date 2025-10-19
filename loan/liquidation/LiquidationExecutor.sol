@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface ILiquidationExecutor {
-    // 執行者調用（bot、keeper）
     function executeLiquidation(address _user, address _collateralAsset, uint256 _debtAssetAmount) external;
     function setExecutor(address _executor, bool _canExecute) external;
     function canExecute(address _executor) external view returns (bool);
