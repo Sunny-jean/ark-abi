@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface ICommunityPollManager {
-    // 投票與民調工具
     function createPoll(string calldata _question, string[] calldata _options, uint256 _endTime) external returns (uint256);
     function voteInPoll(uint256 _pollId, uint256 _optionIndex) external;
     function getPollResults(uint256 _pollId) external view returns (uint256[] memory votes);
