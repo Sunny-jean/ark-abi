@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface IVotingSystemManager {
-    // 投票系統核心
     function createProposal(string calldata _description, bytes calldata _calldata) external returns (uint256);
     function vote(uint256 _proposalId, bool _support) external;
     function getProposal(uint256 _proposalId) external view returns (string memory description, uint256 votesFor, uint256 votesAgainst, bool executed);
