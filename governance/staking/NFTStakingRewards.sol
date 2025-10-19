@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 interface INFTStakingRewards {
-    // 質押獎勵分配
     function stake(uint256 _tokenId) external;
     function unstake(uint256 _tokenId) external;
     function claimRewards(uint256 _tokenId) external;
