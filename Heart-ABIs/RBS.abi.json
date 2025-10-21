@@ -1,723 +1,200 @@
 [
-    {
-      "inputs": [],
-      "name": "CannotRemoveLastKeeper",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "InvalidAddress",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "InvalidConfig",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "InvalidInitialization",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "InvalidPriceRange",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "KeeperAlreadyExists",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "KeeperDoesNotExist",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NotActive",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NotInitializing",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NotOwner",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "NotPicKeeper",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "PriceIsInSafeZone",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "ReentrancyGuardReentrantCall",
-      "type": "error"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "address",
-          "name": "token",
-          "type": "address"
-        }
-      ],
-      "name": "SafeERC20FailedOperation",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "SafeZoneSellingDisabled",
-      "type": "error"
-    },
-    {
-      "inputs": [],
-      "name": "ZeroAmount",
-      "type": "error"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "oldToken",
-          "type": "address"
-        },
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "newToken",
-          "type": "address"
-        }
-      ],
-      "name": "ARKTokenChanged",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [],
-      "name": "Activated",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "price",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "usdtSpent",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "tokenAmountReceived",
-          "type": "uint256"
-        }
-      ],
-      "name": "BuyExecuted",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [],
-      "name": "Deactivated",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "price",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "tokenAmount",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "usdtReceived",
-          "type": "uint256"
-        }
-      ],
-      "name": "HeldTokensSold",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "uint64",
-          "name": "version",
-          "type": "uint64"
-        }
-      ],
-      "name": "Initialized",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "oldPool",
-          "type": "address"
-        },
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "newPool",
-          "type": "address"
-        }
-      ],
-      "name": "LPPoolChanged",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "currentBalance",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "requiredBalance",
-          "type": "uint256"
-        }
-      ],
-      "name": "LowBalanceAlert",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "amountUSDTUsed",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "amountARKUsed",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "lpBurned",
-          "type": "uint256"
-        }
-      ],
-      "name": "ManualBonding",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "oldMinter",
-          "type": "address"
-        },
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "newMinter",
-          "type": "address"
-        }
-      ],
-      "name": "MinterChanged",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "components": [
-            {
-              "internalType": "uint256",
-              "name": "usdtHoldingLimitBps",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "lowBalanceThresholdBps",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "slippageBps",
-              "type": "uint256"
-            }
-          ],
-          "indexed": false,
-          "internalType": "struct RangeBoundStability.OperationConfig",
-          "name": "newConfig",
-          "type": "tuple"
-        }
-      ],
-      "name": "OperationConfigUpdated",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "previousOwner",
-          "type": "address"
-        },
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "newOwner",
-          "type": "address"
-        }
-      ],
-      "name": "OwnershipTransferred",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "keeper",
-          "type": "address"
-        }
-      ],
-      "name": "PicKeeperAdded",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "keeper",
-          "type": "address"
-        }
-      ],
-      "name": "PicKeeperRemoved",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "components": [
-            {
-              "internalType": "uint256",
-              "name": "upperWall",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "upperCushion",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "lowerCushion",
-              "type": "uint256"
-            },
-            {
-              "internalType": "uint256",
-              "name": "lowerWall",
-              "type": "uint256"
-            }
-          ],
-          "indexed": false,
-          "internalType": "struct RangeBoundStability.PriceRange",
-          "name": "newPriceRange",
-          "type": "tuple"
-        }
-      ],
-      "name": "PriceRangeUpdated",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [],
-      "name": "RouterApprovalsRefreshed",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "oldRouter",
-          "type": "address"
-        },
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "newRouter",
-          "type": "address"
-        }
-      ],
-      "name": "RouterChanged",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "price",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "tokenAmount",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "usdtReceived",
-          "type": "uint256"
-        }
-      ],
-      "name": "SafeZoneSellExecuted",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "bool",
-          "name": "enabled",
-          "type": "bool"
-        }
-      ],
-      "name": "SafeZoneSellingToggled",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "price",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "tokenAmount",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "usdtReceived",
-          "type": "uint256"
-        }
-      ],
-      "name": "SellExecuted",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "usdtAmount",
-          "type": "uint256"
-        }
-      ],
-      "name": "SurplusTransferredToTreasury",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "oldTreasury",
-          "type": "address"
-        },
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "newTreasury",
-          "type": "address"
-        }
-      ],
-      "name": "TreasuryWalletChanged",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "oldToken",
-          "type": "address"
-        },
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "newToken",
-          "type": "address"
-        }
-      ],
-      "name": "USDTTokenChanged",
-      "type": "event"
-    },
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "oldFacet",
-          "type": "address"
-        },
-        {
-          "indexed": true,
-          "internalType": "address",
-          "name": "newFacet",
-          "type": "address"
-        }
-      ],
-      "name": "ViewsFacetChanged",
-      "type": "event"
-    },
-    {
-      "inputs": [],
-      "name": "ARK",
-      "outputs": [
-        {
-          "internalType": "contract IERC20",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "amountIn",
-          "type": "uint256"
-        }
-      ],
-      "name": "getExpectedTokensOut",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "expectedAmountOut",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "amountIn",
-          "type": "uint256"
-        }
-      ],
-      "name": "getExpectedUsdtOut",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "expectedAmountOut",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "getLpUsdtValue",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "getReserves",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "tokenReserve",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "usdtReserve",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-
-
-    {
-      "inputs": [],
-      "name": "isPriceInSafeZone",
-      "outputs": [
-        {
-          "internalType": "bool",
-          "name": "inSafeZone",
-          "type": "bool"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "lpPool",
-      "outputs": [
-        {
-          "internalType": "contract IPancakeSwapV2Pair",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "minter",
-      "outputs": [
-        {
-          "internalType": "contract IMinter",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "amountToSpend",
-          "type": "uint256"
-        }
-      ],
-      "name": "operateLowerRange",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "amountToSell",
-          "type": "uint256"
-        }
-      ],
-      "name": "operateUpperRange",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "priceRange",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "upperWall",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "upperCushion",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "lowerCushion",
-          "type": "uint256"
-        },
-        {
-          "internalType": "uint256",
-          "name": "lowerWall",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "treasuryWallet",
-      "outputs": [
-        {
-          "internalType": "address",
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    }
-  ]
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountIn",
+        "type": "uint256"
+      }
+    ],
+    "name": "getExpectedTokensOut",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "expectedAmountOut",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "amountIn",
+        "type": "uint256"
+      }
+    ],
+    "name": "getExpectedUsdtOut",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "expectedAmountOut",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getLpUsdtValue",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getReserves",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "tokenReserve",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "usdtReserve",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getRouterAllowances",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "usdtAllowance",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "arkAllowance",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "isPriceInSafeZone",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "inSafeZone",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "refreshRouterApprovals",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_newARKToken",
+        "type": "address"
+      }
+    ],
+    "name": "setARKToken",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_newLPPool",
+        "type": "address"
+      }
+    ],
+    "name": "setLPPool",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_newRouter",
+        "type": "address"
+      }
+    ],
+    "name": "setRouter",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_newUSDTToken",
+        "type": "address"
+      }
+    ],
+    "name": "setUSDTToken",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_newViewsFacet",
+        "type": "address"
+      }
+    ],
+    "name": "setViewsFacet",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "treasuryWallet",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "version",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+  }
+]
