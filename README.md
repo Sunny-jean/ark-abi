@@ -1,3 +1,41 @@
+# ark-abi:
+This repository holds the ABI of the ARK smart contract, making it simpler for third-party developers and the community to use and interact with it.
+
+# Main Contracts Addresses
+## ARK Token:
+0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D
+
+## gARK:
+0x911f12D137D74E5917877f87cf8A8bB2FDde557f
+
+## EM Minting Manager:
+0x615a2a799c49AF74E91b4C3Ca5eaD68897c07A81
+
+## POL Executor:
+0xbc9e4BC9f839cE93Aba50b9315F31A9A2CBF7E08
+
+## RBS:
+0x23876D9F06F8290F119Fb39B7FDCf93A08e2D616
+
+## RBS Executor:
+0xab8FA6ACC5Dc1a4a306fC9B8b807413Cc651C9FA
+
+## Bonding Contract:
+0x74c28C5F3eBed5A0dE30ee3b7012849CFB4d1762
+
+## Staking Contract:
+0x9C0227570967314C86ed88238bc27eD017F37923
+
+## Release and Turbine:
+0x8366a748E02F730911Cb5AB4fd049d2E1e0414b7
+
+## ARK LP:
+0xCAaF3c41a40103a23Eeaa4BbA468AF3cF5b0e0D8
+
+## ATS Treasury:
+0x1b9f458773d18B4e1AAf5b896721697215C4a68b
+
+
 # ARK Protocol
 
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-blue.svg)](https://opensource.org/licenses/AGPL-3.0)
