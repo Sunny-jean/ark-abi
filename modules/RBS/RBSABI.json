@@ -38,6 +38,19 @@
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_newViewsFacet",
+        "type": "address"
+      }
+    ],
+    "name": "setViewsFacet",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "treasuryWallet",
     "outputs": [
