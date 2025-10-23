@@ -1,6 +1,3 @@
-# ark-abi:
-This repository holds the ABI of the ARK smart contract, making it simpler for third-party developers and the community to use and interact with it.
-
 # Main Contracts Addresses
 ## ARK Token:
 0xCae117ca6Bc8A341D2E7207F30E180f0e5618B9D
