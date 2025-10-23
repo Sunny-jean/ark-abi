@@ -1,67 +1,11 @@
 [
   {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "amountIn",
-        "type": "uint256"
-      }
-    ],
-    "name": "getExpectedTokensOut",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "expectedAmountOut",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "amountIn",
-        "type": "uint256"
-      }
-    ],
-    "name": "getExpectedUsdtOut",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "expectedAmountOut",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "name": "getLpUsdtValue",
     "outputs": [
       {
         "internalType": "uint256",
         "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "getReserves",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "tokenReserve",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "usdtReserve",
         "type": "uint256"
       }
     ],
@@ -88,85 +32,7 @@
   },
   {
     "inputs": [],
-    "name": "isPriceInSafeZone",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "inSafeZone",
-        "type": "bool"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "refreshRouterApprovals",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_newARKToken",
-        "type": "address"
-      }
-    ],
-    "name": "setARKToken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_newLPPool",
-        "type": "address"
-      }
-    ],
-    "name": "setLPPool",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_newRouter",
-        "type": "address"
-      }
-    ],
-    "name": "setRouter",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_newUSDTToken",
-        "type": "address"
-      }
-    ],
-    "name": "setUSDTToken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_newViewsFacet",
-        "type": "address"
-      }
-    ],
-    "name": "setViewsFacet",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
